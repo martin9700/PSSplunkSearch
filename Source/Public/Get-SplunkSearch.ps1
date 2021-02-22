@@ -28,7 +28,7 @@ Function Get-SplunkSearch
             $Search += " Index=$Index"
         }
 
-        $Search += " earliest='$Start' latest='$End'"
+        $Search += " earliest=""$Start"" latest=""$End"""
 
         $Body = @{
             Search = "search $Search"
