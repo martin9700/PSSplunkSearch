@@ -25,19 +25,41 @@ Function Get-SplunkSearch
 
         If ($Index -and $Search -notmatch "index ?= ?")
         {
-            $Search += " Index=$Index"
+            $Search += " index=$Index"
         }
 
-        $Search += " earliest=""$Start"" latest=""$End"""
+        $Uri = "/services/search/jobs?earliest=1614056400&latesttime=1614229200"
 
         $Body = @{
-            Search = "search $Search"
+            search = "search $Search"
         }
 
         $SearchSplat = @{
-            Uri  = "/services/search/jobs/export"
-            Body = $Body
+            Uri    = $Uri
+            Body   = $Body
+            Method = "POST"
         }
-        InvokeSplunkMethod @SearchSplat
+        $Job = InvokeSplunkMethod @SearchSplat
+
+        $SearchSplat = @{
+            Uri    = "/services/search/jobs/$($Job.sid)"
+            Method = "GET"
+        }
+
+        $First = $true
+        Do {
+            $Data = InvokeSplunkMethod @SearchSplat
+            If ($First)
+            {
+                Write-Verbose "Title: $($data.entry.content.request.search)" -Verbose
+                $First = $false
+            }
+            Write-Verbose "Job ($($Job.sid)) status is $($Data.entry.content.dispatchstate) ($($Data.entry.content.runDuration))" -Verbose
+            Start-Sleep -Seconds 8
+        } Until ($Data.entry.content.dispatchstate -notmatch "parsing|running")
+
+        $SearchSplat.Uri = "/services/search/jobs/$($Job.sid)/results"
+        $Data = InvokeSplunkMethod @SearchSplat
+        $Data
     }
 }
