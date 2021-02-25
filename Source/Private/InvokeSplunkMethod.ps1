@@ -17,7 +17,7 @@ Function InvokeSplunkMethod
             $Uri = "/$Uri"
         }
 
-        $Uri = "$($Uri)&output_mode=json"
+        $Uri = "$($Uri)?output_mode=json"
 
         $RestSplat = @{
             Uri             = "$($Global:SplunkConnect.BaseUri)$Uri"
