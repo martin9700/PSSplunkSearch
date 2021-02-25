@@ -42,25 +42,11 @@ Function Start-SplunkSearch
             Body   = $Body
             Method = "POST"
         }
-        $Job = InvokeSplunkMethod @SearchSplat
+        Invoke-SplunkMethod @SearchSplat
+    }
+}
 
-        $SearchSplat = @{
-            Uri    = "/services/search/jobs/$($Job.sid)"
-            Method = "GET"
-        }
-
-        $Wait = 0
-        Do {
-            Start-Sleep -Seconds $Wait
-            $GetJob = InvokeSplunkMethod @SearchSplat
-            If (-not $Wait)
-            {
-                Write-Verbose "Title: $($GetJob.entry.content.request.search)   Start: $Start   End: $End" -Verbose
-                $Wait = 8
-            }
-            Write-Verbose "Job ($($Job.sid)) status is $($GetJob.entry.content.dispatchstate) ($($GetJob.entry.content.runDuration))" -Verbose
-        } Until ($GetJob.entry.content.dispatchstate -notmatch "parsing|running")
-
+<#
         $Top = [math]::Round($GetJob.entry.content.resultCount / $Count) - 1
         $OffsetCount = 0
         $RawData = ForEach ($Offset in (0..$Top))
@@ -77,7 +63,7 @@ Function Start-SplunkSearch
                     offset = $OffsetCount
                 }
             }
-            $temp = InvokeSplunkMethod @RetrieveSplat
+            $temp = Invoke-SplunkMethod @RetrieveSplat
             Write-Output $Temp.results
         }
         $Data = $RawData
@@ -85,3 +71,4 @@ Function Start-SplunkSearch
         Write-Output $Data
     }
 }
+#>

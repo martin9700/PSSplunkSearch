@@ -1,4 +1,4 @@
-Function InvokeSplunkMethod
+Function Invoke-SplunkMethod
 {
     <#
     .SYNOPSIS

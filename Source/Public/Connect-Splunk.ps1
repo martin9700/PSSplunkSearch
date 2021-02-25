@@ -41,7 +41,7 @@ Function Connect-Splunk
         $Global:SplunkConnect = [PSCustomObject]@{
             BaseUri = "https://$($server):$port"
             Header  = $Header
-            Expires = (Get-Date).AddHours(8)
+            Expires = (Get-Date).AddHours(6)
         }
     }
     Else
