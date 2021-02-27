@@ -25,7 +25,7 @@ Function Invoke-SplunkMethod
             Method          = $Method
             Body            = $Body
             UseBasicParsing = $true
-            ErrorAction     = "SilentlyContinue"
+            ErrorAction     = "Stop"
         }
         Try {
             $Response = Invoke-RestMethod @RestSplat
