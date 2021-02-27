@@ -8,8 +8,7 @@ environment:
   PSGalleryAPIKey:
     secure: IES4nPv8KGnfnJ1qw+9EZA8nEbaq/7FrxhLnv5L1I4HFypBMAdqXpj7x7OQBNUSN
 
-build:
-  verbosity: detailed
-  
+build: off
+
 build_script:
   - ps: . .\build.ps1
