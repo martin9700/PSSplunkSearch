@@ -1,6 +1,28 @@
 Function Connect-Splunk
 {
     <#
+    .SYNOPSIS
+        Script to establish a connection to Splunk
+    .PARAMETER Server
+        Name of the Splunk server
+    .PARAMETER Port
+        Port number used by the Splunk server, default is 8089
+    .PARAMETER Credential
+        Username and password needed to authenticate
+    .EXAMPLE
+        Connect-Splunk -Server splunk.yourdomain.com
+    .EXAMPLE
+        Connect-Splunk -Server splunk.yourdomain.com -Port 9999
+    .NOTES
+        Author:             Martin Pugh
+        Twitter:            @thesurlyadm1n
+        Spiceworks:         Martin9700
+        Blog:               www.thesurlyadmin.com
+          
+        Changelog:
+            02/27/21        Initial Release
+    .LINK
+        https://github.com/martin9700/PSSplunkSearch
     #>
     [CmdletBinding()]
     Param (
@@ -42,7 +64,6 @@ Function Connect-Splunk
             BaseUri     = "https://$($server):$port"
             Header      = $Header
             Expires     = (Get-Date).AddHours(6)
-            ResultCount = 250
         }
     }
     Else

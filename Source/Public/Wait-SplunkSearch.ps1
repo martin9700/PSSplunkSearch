@@ -1,6 +1,30 @@
 Function Wait-SplunkSearch
 {
     <#
+    .SYNOPSIS
+        Wait for a search result job to finish
+    .DESCRIPTION
+        You can use this function to watch a running search job until it finishes.
+    .PARAMETER sid
+        This is the sid associated with your search job.
+    .EXAMPLE
+        Start-SplunkSearch -Query "EventCode=4740" Index="domain_controllers" -Start "2/20/21" -End "2/22/21" | Wait-SplunkSearch
+
+        Begins a search and waits for it to complete.
+    .EXAMPLE
+        Get-SplunkSearchJobList -Filter "*4740*" | Wait-SplunkSearch
+
+        If this filter returns multiple results, it will wait for the first one before moving on to the second and so on.
+    .NOTES
+        Author:             Martin Pugh
+        Twitter:            @thesurlyadm1n
+        Spiceworks:         Martin9700
+        Blog:               www.thesurlyadmin.com
+          
+        Changelog:
+            02/27/21        Initial Release
+    .LINK
+        https://github.com/martin9700/PSSplunkSearch
     #>
     [CmdletBinding()]
     Param (
