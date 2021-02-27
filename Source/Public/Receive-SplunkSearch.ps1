@@ -26,7 +26,7 @@ Function Receive-SplunkSearch
         $OffsetCount = 0
         $Data = ForEach ($Offset in (0..$Top))
         {
-            $Uri ="/services/search/jobs/$($Job.sid)/results"
+            $Uri ="/services/search/jobs/$sid/results"
             If ($Offset -gt 0)
             {
                 $OffsetCount += $Global:SplunkConnect.ResultCount
