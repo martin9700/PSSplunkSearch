@@ -12,6 +12,7 @@ Function Get-SplunkSearchJob
 
     Begin {
         ValidateSplunk
+        Write-Verbose -Message "Starting Get-SplunkSearchJob"
     }
 
     Process {

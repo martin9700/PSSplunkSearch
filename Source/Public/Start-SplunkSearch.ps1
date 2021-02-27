@@ -21,6 +21,12 @@ Function Start-SplunkSearch
 
     Begin {
         ValidateSplunk
+        Write-Verbose -Message "Starting Start-SplunkSearch"
+
+        If ($Count -ne $Global:SplunkConnect.Count)
+        {
+            $Global:SplunkConnect.ResultCount = $Count
+        }
     }
 
     Process {
@@ -42,33 +48,13 @@ Function Start-SplunkSearch
             Body   = $Body
             Method = "POST"
         }
-        Invoke-SplunkMethod @SearchSplat
-    }
-}
+        $Data = Invoke-SplunkMethod @SearchSplat
 
-<#
-        $Top = [math]::Round($GetJob.entry.content.resultCount / $Count) - 1
-        $OffsetCount = 0
-        $RawData = ForEach ($Offset in (0..$Top))
-        {
-            $Uri ="/services/search/jobs/$($Job.sid)/results"
-            If ($Offset -gt 0)
-            {
-                $OffsetCount += $Count
-            }
-            $RetrieveSplat = @{
-                Uri = $Uri
-                Body = @{
-                    count  = $Count
-                    offset = $OffsetCount
-                }
-            }
-            $temp = Invoke-SplunkMethod @RetrieveSplat
-            Write-Output $Temp.results
+        [PSCustomObject]@{
+            sid           = $Data.sid
+            Search        = $Body.Search
+            Earliest_Time = $Body.earliest_time
+            Latest_Time   = $Body.latest_time
         }
-        $Data = $RawData
-        $Data | Add-Member -MemberType ScriptProperty -Name "Date" -Value { Get-Date $this._time }
-        Write-Output $Data
     }
 }
-#>

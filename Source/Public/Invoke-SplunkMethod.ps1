@@ -25,6 +25,7 @@ Function Invoke-SplunkMethod
             Method          = $Method
             Body            = $Body
             UseBasicParsing = $true
+            Verbose         = $false
             ErrorAction     = "Stop"
         }
         Try {

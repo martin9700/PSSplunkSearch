@@ -11,8 +11,9 @@ Function Wait-SplunkSearch
 
     Begin {
         ValidateSplunk
+        Write-Verbose -Message "Starting Wait-SplunkSearch"
     }
-    
+
     Process {
         $SearchSplat = @{
             Uri         = "/services/search/jobs/$sid"
@@ -31,7 +32,16 @@ Function Wait-SplunkSearch
                 Write-Verbose "Title: $($GetJob.entry.content.request.search)   Start: $Start   End: $End"
                 $Wait = 8
             }
-            Write-Verbose "Job ($($Job.sid)) status is $($GetJob.entry.content.dispatchstate) ($($GetJob.entry.content.runDuration))"
-        } Until ($GetJob.entry.content.dispatchstate -notmatch "parsing|running")
+            Write-Verbose "Job ($sid) status is $($GetJob.entry.content.dispatchState) ($($GetJob.entry.content.runDuration))"
+        } Until ($GetJob.entry.content.isDone)
+
+        [PSCustomObject]@{
+            sid           = $sid
+            Name          = $GetJob.entry.content.request.search
+            Earliest_Time = $Start
+            Latest_Time   = $End
+            RunDuration   = $GetJob.entry.content.runDuration
+            Status        = $GetJob.entry.content.dispatchState
+        }
     }
 }
