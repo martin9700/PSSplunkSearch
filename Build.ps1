@@ -84,7 +84,8 @@ Else
 Write-Verbose "$($ENV:APPVEYOR_REPO_BRANCH)" -Verbose
 If ($ENV:APPVEYOR_REPO_BRANCH -eq "Main")
 {
-    $PublishInformation = @{
+    Write-Verbose "Doing build"
+    <#$PublishInformation = @{
         Path            = "$ENV:APPVEYOR_BUILD_FOLDER\$ModuleName"
         Force           = $true
         NuGetApiKey     = $ENV:PSGalleryAPIKey
@@ -99,6 +100,7 @@ If ($ENV:APPVEYOR_REPO_BRANCH -eq "Main")
     Catch {
         Write-Error "Publish to PSGallery failed because ""$_""" -ErrorAction Stop
     }
+    #>
 }
 Else
 {
