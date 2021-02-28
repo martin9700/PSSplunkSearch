@@ -24,17 +24,18 @@ Function Start-SplunkSearch
     .EXAMPLE
         Get-SplunkSearchJobList -Filter "*4740*" | Remove-SplunkSearch
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
-          
-        Changelog:
-            02/27/21        Initial Release
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
+
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>
     [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
     Param (
         [Parameter(Mandatory=$true)]
         [string]$Query,

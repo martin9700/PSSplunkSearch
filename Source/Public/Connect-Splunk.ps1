@@ -3,6 +3,8 @@ Function Connect-Splunk
     <#
     .SYNOPSIS
         Script to establish a connection to Splunk
+    .DESCRIPTION
+        Script to establish a connection to Splunk
     .PARAMETER Server
         Name of the Splunk server
     .PARAMETER Port
@@ -14,13 +16,13 @@ Function Connect-Splunk
     .EXAMPLE
         Connect-Splunk -Server splunk.yourdomain.com -Port 9999
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
-          
-        Changelog:
-            02/27/21        Initial Release
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
+
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>
@@ -38,7 +40,7 @@ Function Connect-Splunk
         [pscredential]$Credential
     )
 
-    If ((-not (Get-Variable SplunkConnect -Scope Global -ErrorAction SilentlyContinue)) -or $Global:SplunkConnect.Expires -lt (Get-Date))
+    If ((-not (Get-Variable SplunkConnect -Scope Script -ErrorAction SilentlyContinue)) -or $Script:SplunkConnect.Expires -lt (Get-Date))
     {
         $AuthSplat = @{
             Uri             = "https://$($server):$port/services/auth/login"
@@ -60,7 +62,7 @@ Function Connect-Splunk
             Authorization = "Splunk $($Return.response.sessionKey)"
         }
 
-        $Global:SplunkConnect = [PSCustomObject]@{
+        $Script:SplunkConnect = [PSCustomObject]@{
             BaseUri     = "https://$($server):$port"
             Header      = $Header
             Expires     = (Get-Date).AddHours(6)

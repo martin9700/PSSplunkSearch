@@ -33,7 +33,7 @@ $ModuleInformation = @{
     Description     = $Description
     ProjectURI      = "https://github.com/martin9700/$ModuleName"
     LicenseURI      = "https://github.com/martin9700/$ModuleName/blob/main/LICENSE"
-    Includes        = "Includes"
+    Include         = "Includes"
     PassThru        = $true
 }
 Invoke-PSModuleBuild @ModuleInformation
@@ -42,7 +42,7 @@ Invoke-PSModuleBuild @ModuleInformation
 
 
 #
-# Analyse source
+# Analyze source
 #
 Write-Verbose -Verbose -Message "$(Get-Date): Analyzing code"
 $Results = Invoke-ScriptAnalyzer -Path "$ENV:APPVEYOR_BUILD_FOLDER\Source" -Recurse

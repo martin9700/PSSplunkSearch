@@ -22,13 +22,13 @@ Function Receive-SplunkSearch
     .EXAMPLE
         Receive-SplunkSearch -sid 123456789.12345
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
-          
-        Changelog:
-            02/27/21        Initial Release
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
+
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>
