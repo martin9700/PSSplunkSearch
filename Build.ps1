@@ -33,7 +33,7 @@ $ModuleInformation = @{
     Description     = $Description
     ProjectURI      = "https://github.com/martin9700/$ModuleName"
     LicenseURI      = "https://github.com/martin9700/$ModuleName/blob/main/LICENSE"
-    Includes        = "Includes"
+    Include         = "Includes"
     PassThru        = $true
 }
 Invoke-PSModuleBuild @ModuleInformation
