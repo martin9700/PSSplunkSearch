@@ -28,7 +28,7 @@ Function Start-SplunkSearch
         Twitter:            @thesurlyadm1n
         Spiceworks:         Martin9700
         Blog:               www.thesurlyadmin.com
-          
+
         Changelog:
             02/27/21        Initial Release
     .LINK

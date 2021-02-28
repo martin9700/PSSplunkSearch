@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/g1hc0u2y33usv1ay?svg=true)](https://ci.appveyor.com/project/MartinPugh/pssplunksearch) [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/PSSplunkSearch.svg?style=plastic)](https://www.powershellgallery.com/packages/PSSplunkSearch)
+
 # PSSplunkSearch
 --------------
 ## SYNOPSIS

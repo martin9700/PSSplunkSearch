@@ -34,7 +34,7 @@ Function Invoke-SplunkMethod
         Twitter:            @thesurlyadm1n
         Spiceworks:         Martin9700
         Blog:               www.thesurlyadmin.com
-          
+
         Changelog:
             02/27/21        Initial Release
     .LINK
@@ -57,8 +57,8 @@ Function Invoke-SplunkMethod
         $Uri = "$($Uri)?output_mode=json"
 
         $RestSplat = @{
-            Uri             = "$($Global:SplunkConnect.BaseUri)$Uri"
-            Header          = $Global:SplunkConnect.Header
+            Uri             = "$($Script:SplunkConnect.BaseUri)$Uri"
+            Header          = $Script:SplunkConnect.Header
             Method          = $Method
             Body            = $Body
             UseBasicParsing = $true

@@ -10,7 +10,7 @@ Function Disconnect-Splunk
         Twitter:            @thesurlyadm1n
         Spiceworks:         Martin9700
         Blog:               www.thesurlyadmin.com
-          
+
         Changelog:
             02/27/21        Initial Release
     .LINK
@@ -20,6 +20,6 @@ Function Disconnect-Splunk
     Param ()
 
     Process {
-        Remove-Variable -Name SplunkConnect -Scope Global -ErrorAction SilentlyContinue
+        Remove-Variable -Name SplunkConnect -Scope Script -ErrorAction SilentlyContinue
     }
 }
