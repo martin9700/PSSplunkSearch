@@ -84,7 +84,7 @@ Else
 Write-Verbose "$($ENV:APPVEYOR_REPO_BRANCH)" -Verbose
 If ($ENV:APPVEYOR_REPO_BRANCH -eq "Main")
 {
-    Write-Verbose "Doing build"
+    Write-Verbose "Doing build..."
     <#$PublishInformation = @{
         Path            = "$ENV:APPVEYOR_BUILD_FOLDER\$ModuleName"
         Force           = $true
