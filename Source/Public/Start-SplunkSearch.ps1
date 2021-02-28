@@ -35,6 +35,7 @@ Function Start-SplunkSearch
         https://github.com/martin9700/PSSplunkSearch
     #>
     [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
     Param (
         [Parameter(Mandatory=$true)]
         [string]$Query,

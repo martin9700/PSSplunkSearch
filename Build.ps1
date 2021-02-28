@@ -42,7 +42,7 @@ Invoke-PSModuleBuild @ModuleInformation
 
 
 #
-# Analyse source
+# Analyze source
 #
 Write-Verbose -Verbose -Message "$(Get-Date): Analyzing code"
 $Results = Invoke-ScriptAnalyzer -Path "$ENV:APPVEYOR_BUILD_FOLDER\Source" -Recurse
@@ -81,7 +81,8 @@ Else
 #
 # Publish module
 #
-If ($ENV:PSGalleryAPIKey)
+Write-Verbose "$($ENV:APPVEYOR_REPO_BRANCH)" -Verbose
+If ($ENV:APPVEYOR_REPO_BRANCH -eq "Main")
 {
     $PublishInformation = @{
         Path            = "$ENV:APPVEYOR_BUILD_FOLDER\$ModuleName"
