@@ -3,6 +3,8 @@ Function Connect-Splunk
     <#
     .SYNOPSIS
         Script to establish a connection to Splunk
+    .DESCRIPTION
+        Script to establish a connection to Splunk
     .PARAMETER Server
         Name of the Splunk server
     .PARAMETER Port
@@ -14,13 +16,13 @@ Function Connect-Splunk
     .EXAMPLE
         Connect-Splunk -Server splunk.yourdomain.com -Port 9999
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
 
-        Changelog:
-            02/27/21        Initial Release
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>

@@ -16,13 +16,13 @@ Function Wait-SplunkSearch
 
         If this filter returns multiple results, it will wait for the first one before moving on to the second and so on.
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
 
-        Changelog:
-            02/27/21        Initial Release
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>

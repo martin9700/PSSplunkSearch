@@ -16,13 +16,13 @@ Function Get-SplunkSearchJobList
         This example will use Get-SplunkSearchJobList to find any jobs with the text 4740 (user locked out)
         in the name field--name field is always the text of the full search.
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
 
-        Changelog:
-            02/27/21        Initial Release
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>

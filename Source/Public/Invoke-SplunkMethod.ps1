@@ -30,13 +30,13 @@ Function Invoke-SplunkMethod
 
         This would do a GET call to the "/services/search/jobs" endpoint.
     .NOTES
-        Author:             Martin Pugh
-        Twitter:            @thesurlyadm1n
-        Spiceworks:         Martin9700
-        Blog:               www.thesurlyadmin.com
+        Author:         Martin Pugh
+        Twitter:        @martin9700
+        Spiceworks:     Martin9700
+        Blog:           www.thesurlyadmin.com
 
-        Changelog:
-            02/27/21        Initial Release
+        Changelog:
+            02/27/21    Initial Release
     .LINK
         https://github.com/martin9700/PSSplunkSearch
     #>
